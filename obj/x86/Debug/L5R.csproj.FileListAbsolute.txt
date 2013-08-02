@@ -1,0 +1,14 @@
+C:\Users\mikeucc\Documents\Visual Studio 2010\Projects\L5R\L5R\L5R\bin\x86\Debug\L5R.exe
+C:\Users\mikeucc\Documents\Visual Studio 2010\Projects\L5R\L5R\L5R\bin\x86\Debug\L5R.pdb
+C:\Users\mikeucc\Documents\Visual Studio 2010\Projects\L5R\L5R\L5R\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\mikeucc\Documents\Visual Studio 2010\Projects\L5R\L5R\L5R\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Users\mikeucc\Documents\Visual Studio 2010\Projects\L5R\L5R\L5R\obj\x86\Debug\L5R.exe
+C:\Users\mikeucc\Documents\Visual Studio 2010\Projects\L5R\L5R\L5R\obj\x86\Debug\L5R.pdb
+D:\Users\mikeucc\Documents\Visual Studio 2010\Projects\L5R\L5R\L5R\bin\x86\Debug\L5R.exe
+D:\Users\mikeucc\Documents\Visual Studio 2010\Projects\L5R\L5R\L5R\bin\x86\Debug\L5R.pdb
+D:\Users\mikeucc\Documents\Visual Studio 2010\Projects\L5R\L5R\L5R\obj\x86\Debug\L5R.csprojResolveAssemblyReference.cache
+D:\Users\mikeucc\Documents\Visual Studio 2010\Projects\L5R\L5R\L5R\obj\x86\Debug\Microsoft.Xna.Framework.RuntimeProfile.txt
+D:\Users\mikeucc\Documents\Visual Studio 2010\Projects\L5R\L5R\L5R\obj\x86\Debug\L5R.exe
+D:\Users\mikeucc\Documents\Visual Studio 2010\Projects\L5R\L5R\L5R\obj\x86\Debug\L5R.pdb
+D:\Users\mikeucc\Documents\Visual Studio 2010\Projects\L5R\L5R\L5R\bin\x86\Debug\Content\Arial.xnb
+D:\Users\mikeucc\Documents\Visual Studio 2010\Projects\L5R\L5R\L5R\bin\x86\Debug\Content\TogashiMitsu.xnb
