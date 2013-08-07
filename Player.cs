@@ -9,6 +9,7 @@ namespace L5R
     {
         private bool isActivePlayer;
         private bool playerPerformingAction;
+        private bool hasPassed;
 
 
         private List<L5R.Card> cardsInPlay;
@@ -18,10 +19,9 @@ namespace L5R
         private List<L5R.Card> cardsInDynastyDiscard;
         private List<L5R.Card> cardsInHand;
         private List<List<L5R.Card>> cardsInProvence;
-        private List<L5R.Unit.Unit> unitsInPlay;
         
+
         
-     
 
         public Player(List<L5R.Card> dd ,List<L5R.Card> fd)
         {
@@ -34,12 +34,21 @@ namespace L5R
             this.cardsInDynastyDeck = dd;
             this.cardsInFateDeck = fd;
             this.cardsInProvence=new List<List<Card>>(4);
-
-
+            
 
         }
 
-
+        
+        public bool HasPassed
+        {
+            get
+            {   return this.hasPassed;
+            }
+            set
+            {   this.hasPassed=value;
+            }
+        }
+        
         public bool getPlayerPerformingAction()
         {
             return this.playerPerformingAction;
@@ -126,5 +135,15 @@ namespace L5R
         }
 
 
+        public List<List<L5R.Card>> getCardsInProvence()
+        {
+            return this.cardsInProvence;
+        }
+
+
+        public void performAction(String phase)
+        { 
+            //Get a list of actions to perform durning the appropiate hase
+        }
     }
 }

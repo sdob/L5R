@@ -7,12 +7,15 @@ namespace L5R.GameState
 {
     class GameState
     {
-        
+
+        private int unitID;
+
         private int turnCounter;
 
         private L5R.Player player1;
         private L5R.Player player2;
         private L5R.Player activePlayer;
+        private L5R.Player nonActivePlayer;
 
         private string turnPhase;
 
@@ -37,9 +40,11 @@ namespace L5R.GameState
             this.player2 = p2;
             //place test to see who active player should be;
             this.activePlayer = p1;
+            this.nonActivePlayer = p2;
             
 
             this.gameOver = false;
+            this.unitID = 0;
 
         }
 
@@ -53,6 +58,17 @@ namespace L5R.GameState
         {
             return this.player2;
         }
+
+        public void incrementUnitID()
+        {
+            unitID++;
+        }
+
+        public int getUnitID()
+        {
+            return unitID;
+        }
+
        
         public void gameLoop()
         {
@@ -65,12 +81,14 @@ namespace L5R.GameState
                         this.player1.setAsInactivePlayer();
                         this.player2.setAsActivePlayer();
                         this.activePlayer = player2;
+                        this.nonActivePlayer = player1;
                     }
                     else
                     {
                         this.player2.setAsInactivePlayer();
                         this.player1.setAsActivePlayer();
                         this.activePlayer = player1;
+                        this.nonActivePlayer = player2;
                     }
                 }
 
@@ -104,13 +122,53 @@ namespace L5R.GameState
         }
 
         public void performStraightenPhase()
-        { }
+        { 
+            foreach(L5R.Card playerCard in activePlayer.getCardsInPlay())
+            {
+                playerCard.IsBowed = false;
+            }
+
+           
+            
+
+            //Update windows form
+        }
 
         public void performEventsPhase()
-        { }
+        {
+            foreach (var provence in activePlayer.getCardsInProvence())
+            {
+                foreach (L5R.Card cardinProvence in provence)
+                {
+                    cardinProvence.IsFaceDown = false;
+
+                    if (cardinProvence.IsEvent == true)
+                    {   //resolveEvent
+
+                    }
+
+                    if (cardinProvence.IsRegion == true)
+                    {   //bring regionIntoPlay
+                    }
+                }
+            }
+
+          
+        }
 
         public void performLimitedPhase()
-        { }
+        {
+            //Set both players status to not have passed
+            activePlayer.HasPassed = false;
+            nonActivePlayer.HasPassed = false;
+            
+            while (activePlayer.HasPassed == false && nonActivePlayer.HasPassed == false)
+            {
+                activePlayer.performAction(this.turnPhase);
+                nonActivePlayer.performAction(this.turnPhase);
+            }
+
+        }
 
         public void performBattlePhase()
         { }
