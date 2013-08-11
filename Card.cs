@@ -81,6 +81,7 @@ namespace L5R
             {
                 isPersonality = value;
             }
+
         }
         public bool IsRegion
         {
@@ -391,13 +392,13 @@ namespace L5R
 
         public Card()
         {
-            this.isFateCard = true;
+            this.isFateCard = false;
             this.isbowed = false;
             this.isPersonality = false;
             this.isFollower = false;
             this.isAttachment = true;
             this.isHolding = false;
-            this.isItem = true;
+            this.isItem = false;
             this.isSpell = false;
             this.canBeRanged = false;
             this.hasAttachments = false;
@@ -411,6 +412,8 @@ namespace L5R
         public void addAction(L5R.Action action)
         {
             this.cardActions.Add(action);
+            Console.WriteLine("Card: " + this.cardName+" has had the following action added");
+            Console.WriteLine(action.getActionText());
         }
 
        

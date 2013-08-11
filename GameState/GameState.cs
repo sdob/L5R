@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 
 namespace L5R.GameState
 {
@@ -128,6 +129,15 @@ namespace L5R.GameState
                 playerCard.IsBowed = false;
             }
 
+            foreach (L5R.Unit playerUnits in activePlayer.getUnitsInPlay())
+            {
+                foreach (L5R.Card playersUnitCard in playerUnits.getCardsInUnit())
+                {
+                    playersUnitCard.IsBowed = false;
+                }
+            
+            }
+
            
             
 
@@ -141,11 +151,6 @@ namespace L5R.GameState
                 foreach (L5R.Card cardinProvence in provence)
                 {
                     cardinProvence.IsFaceDown = false;
-
-                    if (cardinProvence.IsEvent == true)
-                    {   //resolveEvent
-
-                    }
 
                     if (cardinProvence.IsRegion == true)
                     {   //bring regionIntoPlay
@@ -171,12 +176,91 @@ namespace L5R.GameState
         }
 
         public void performBattlePhase()
-        { }
+        {
+            activePlayer.HasPassed = false;
+            nonActivePlayer.HasPassed = false; 
+        }
 
         public void performDynastyPhase()
-        { }
+        {
+
+            List<RadioButton> listOfRadioButtons = new List<RadioButton>();
+            int i=0;
+            foreach (List<L5R.Card> cardInProvence in activePlayer.getCardsInProvence())
+            {
+                Console.WriteLine("Iterations of provences:" + i.ToString());
+
+                if (cardInProvence[0].IsPersonality == true && cardInProvence[0].IsFaceDown == false)
+                {
+                    Console.WriteLine("Card in provence " + i + " is a personality and is called: " + cardInProvence[0].CardName);
+                    RadioButton cardButton = new RadioButton();
+                    cardButton.Text = "Personality:" + cardInProvence[0].CardName + " Gold Cost:" + cardInProvence[0].BaseGoldCost.ToString();
+                    cardButton.Tag = i;
+
+                    listOfRadioButtons.Add(cardButton);
+
+
+                    //Add to the list of cards that can be bought.
+                }
+
+                if (cardInProvence[0].IsHolding == true && cardInProvence[0].IsFaceDown == false)
+                {
+                    Console.WriteLine("Card in provence " + i + " is a holding and is called: " + cardInProvence[0].CardName);
+                    //Add to the list of cards that can be bought.
+                    // This is the card in the provence activePlayer.getCardsInProvence()[i][0];
+                    // Add to list of possible cards that can be bought.
+                    RadioButton cardButton = new RadioButton();
+                    cardButton.Text = "Holding:" + cardInProvence[0].CardName + " Gold Cost:" + cardInProvence[0].BaseGoldCost.ToString();
+                    cardButton.Tag = i;
+
+                    listOfRadioButtons.Add(cardButton);
+
+                }
+
+              
+
+                
+
+                i++;
+            }
+
+            DynastyPopup dp=new DynastyPopup();
+            dp.CurrentPlayer = activePlayer;
+
+
+            TableLayoutPanel tl = dp.getPurchaseTableLayoutPanel();
+            tl.RowCount = 5;
+            tl.ColumnCount = 1;
+
+            foreach (RadioButton rb in listOfRadioButtons)
+            {
+                rb.Dock = DockStyle.Fill;
+                tl.Controls.Add(rb);
+                
+
+                
+            }
+
+            
+            dp.Visible = true;
+            dp.Show();
+
+            Console.WriteLine("Number of radio buttons created:" + listOfRadioButtons.Count.ToString());
+            Console.WriteLine("Number of controls:"+dp.Controls.Count.ToString());
+           
+            
+        
+        }
 
         public void PerformEndPhase()
-        { }        
+        {
+            activePlayer.getCardsInHand().Add(activePlayer.getCardsInFateDeck()[0]);
+            activePlayer.getCardsInFateDeck().RemoveAt(0);
+
+            if (activePlayer.getCardsInHand().Count > activePlayer.MaxHandSize)
+            {
+                //Player Must discard down to 8 cards
+            }
+        }        
     }
 }

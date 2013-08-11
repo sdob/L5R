@@ -19,6 +19,11 @@ namespace L5R
         private List<L5R.Card> cardsInDynastyDiscard;
         private List<L5R.Card> cardsInHand;
         private List<List<L5R.Card>> cardsInProvence;
+
+        private List<L5R.Unit> unitsInPlay;
+
+        private int maxHandSize;
+        private int goldPool;
         
 
         
@@ -33,11 +38,43 @@ namespace L5R
             this.cardsInFateDiscard = new List<Card>();
             this.cardsInDynastyDeck = dd;
             this.cardsInFateDeck = fd;
-            this.cardsInProvence=new List<List<Card>>(4);
+            this.cardsInProvence=new List<List<Card>>();
+            this.unitsInPlay = new List<Unit>();
+            this.maxHandSize=8;
+
+            Console.WriteLine("In Player Class Constructor. Num of Provences is:" + this.cardsInProvence.Count.ToString());
             
 
         }
 
+
+
+        public int GoldPool
+        {
+            get
+            {
+                return goldPool;
+            }
+            set
+            {
+                goldPool = value;
+            }
+        }
+        
+        
+        
+        public int MaxHandSize
+        {
+            get
+            {
+                return maxHandSize;
+            }
+            set
+            {
+                maxHandSize = value;
+            }
+        }
+        
         
         public bool HasPassed
         {
@@ -140,10 +177,36 @@ namespace L5R
             return this.cardsInProvence;
         }
 
+        public List<L5R.Unit> getUnitsInPlay()
+        {
+            return this.unitsInPlay;
+        }
+
 
         public void performAction(String phase)
         { 
             //Get a list of actions to perform durning the appropiate hase
+        }
+
+
+        public void addGoldToPool()
+        {
+            //Create a popup that will parse through card that can produce gold (Check boxes)
+        }
+
+        public void recruitCardFromProvence(int provNum)
+        {
+            List<L5R.Card> cardToPurchase = cardsInProvence[provNum];
+
+            Console.WriteLine("Card selected to purchase is:" + cardToPurchase[0].CardName);
+
+            if (cardToPurchase[0].IsHolding == true)
+            {
+                this.cardsInPlay.Add(cardToPurchase[0]);
+                cardsInProvence[provNum].RemoveAt(0);
+                cardsInProvence[provNum].Add(cardsInDynastyDeck[0]);
+                cardsInDynastyDeck.RemoveAt(0);
+            }
         }
     }
 }
