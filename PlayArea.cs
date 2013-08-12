@@ -81,10 +81,10 @@ namespace L5R
 
             
 
-            player1.getCardsInProvence()[1,0]=testDynastyCard;
-            player1.getCardsInProvence()[2,0]=testHolding2;
-            player1.getCardsInProvence()[3,0]=testDynastyCard;
-            player1.getCardsInProvence()[4,0]=testHolding;
+            player1.getCardsInProvence()[0,0]=testDynastyCard;
+            player1.getCardsInProvence()[1,0]=testHolding2;
+            player1.getCardsInProvence()[2,0]=testDynastyCard;
+            player1.getCardsInProvence()[3,0]=testHolding;
 
             Console.WriteLine("Number of provances:" + player1.getCardsInProvence().GetLength(0).ToString());
 
