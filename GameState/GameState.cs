@@ -146,17 +146,18 @@ namespace L5R.GameState
 
         public void performEventsPhase()
         {
-            foreach (var provence in activePlayer.getCardsInProvence())
+            for (int i = 0; i < 4; i++)
             {
-                foreach (L5R.Card cardinProvence in provence)
+                if (activePlayer.getCardsInProvence()[i, 0].IsFaceDown)
                 {
-                    cardinProvence.IsFaceDown = false;
-
-                    if (cardinProvence.IsRegion == true)
-                    {   //bring regionIntoPlay
-                    }
+                    activePlayer.getCardsInProvence()[i, 0].IsFaceDown = false;
                 }
-            }
+
+                if (activePlayer.getCardsInProvence()[i, 0].IsRegion == true)
+                {   //bring regionIntoPlay
+                }
+            }   
+            
 
           
         }
@@ -185,16 +186,16 @@ namespace L5R.GameState
         {
 
             List<RadioButton> listOfRadioButtons = new List<RadioButton>();
-            int i=0;
-            foreach (List<L5R.Card> cardInProvence in activePlayer.getCardsInProvence())
+
+            for (int i = 0; i < 4;i++ )
             {
                 Console.WriteLine("Iterations of provences:" + i.ToString());
 
-                if (cardInProvence[0].IsPersonality == true && cardInProvence[0].IsFaceDown == false)
+                if (activePlayer.getCardsInProvence()[i, 0].IsPersonality == true && activePlayer.getCardsInProvence()[i, 0].IsFaceDown == false)
                 {
-                    Console.WriteLine("Card in provence " + i + " is a personality and is called: " + cardInProvence[0].CardName);
+                    Console.WriteLine("Card in provence " + i + " is a personality and is called: " + activePlayer.getCardsInProvence()[i, 0].CardName);
                     RadioButton cardButton = new RadioButton();
-                    cardButton.Text = "Personality:" + cardInProvence[0].CardName + " Gold Cost:" + cardInProvence[0].BaseGoldCost.ToString();
+                    cardButton.Text = "Personality:" + activePlayer.getCardsInProvence()[i, 0].CardName + " Gold Cost:" + activePlayer.getCardsInProvence()[i, 0].BaseGoldCost.ToString();
                     cardButton.Tag = i;
 
                     listOfRadioButtons.Add(cardButton);
@@ -203,14 +204,14 @@ namespace L5R.GameState
                     //Add to the list of cards that can be bought.
                 }
 
-                if (cardInProvence[0].IsHolding == true && cardInProvence[0].IsFaceDown == false)
+                if (activePlayer.getCardsInProvence()[i, 0].IsHolding == true && activePlayer.getCardsInProvence()[i, 0].IsFaceDown == false)
                 {
-                    Console.WriteLine("Card in provence " + i + " is a holding and is called: " + cardInProvence[0].CardName);
+                    Console.WriteLine("Card in provence " + i + " is a holding and is called: " + activePlayer.getCardsInProvence()[i, 0].CardName);
                     //Add to the list of cards that can be bought.
                     // This is the card in the provence activePlayer.getCardsInProvence()[i][0];
                     // Add to list of possible cards that can be bought.
                     RadioButton cardButton = new RadioButton();
-                    cardButton.Text = "Holding:" + cardInProvence[0].CardName + " Gold Cost:" + cardInProvence[0].BaseGoldCost.ToString();
+                    cardButton.Text = "Holding:" + activePlayer.getCardsInProvence()[i, 0].CardName + " Gold Cost:" + activePlayer.getCardsInProvence()[i,0].BaseGoldCost.ToString();
                     cardButton.Tag = i;
 
                     listOfRadioButtons.Add(cardButton);
@@ -218,10 +219,6 @@ namespace L5R.GameState
                 }
 
               
-
-                
-
-                i++;
             }
 
             DynastyPopup dp=new DynastyPopup();

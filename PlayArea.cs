@@ -79,20 +79,14 @@ namespace L5R
             L5R.Player player1 = new L5R.Player(testDynastyDeck, testFateDeck);
             L5R.Player player2 = new L5R.Player(testDynastyDeck, testFateDeck);
 
-            List<L5R.Card> personalityToAdd = new List<Card>();
-            personalityToAdd.Add(testDynastyCard);
+            
 
-            List<L5R.Card> holdingToAdd = new List<Card>();
-            holdingToAdd.Add(testHolding);
+            player1.getCardsInProvence()[1,0]=testDynastyCard;
+            player1.getCardsInProvence()[2,0]=testHolding2;
+            player1.getCardsInProvence()[3,0]=testDynastyCard;
+            player1.getCardsInProvence()[4,0]=testHolding;
 
-            player1.getCardsInProvence().Add(personalityToAdd);
-            player1.getCardsInProvence().Add(personalityToAdd);
-            player1.getCardsInProvence().Add(personalityToAdd);
-            player1.getCardsInProvence().Add(holdingToAdd);
-
-            Console.WriteLine("Number of provances:" + player1.getCardsInProvence().Count.ToString());
-
-
+            Console.WriteLine("Number of provances:" + player1.getCardsInProvence().GetLength(0).ToString());
 
             Console.WriteLine("Creating gamestate");
             this.gs = new GameState.GameState(player1, player2);

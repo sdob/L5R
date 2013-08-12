@@ -18,7 +18,9 @@ namespace L5R
         private List<L5R.Card> cardsInFateDiscard;
         private List<L5R.Card> cardsInDynastyDiscard;
         private List<L5R.Card> cardsInHand;
-        private List<List<L5R.Card>> cardsInProvence;
+        private L5R.Card[,] cardsInProvince;
+
+       
 
         private List<L5R.Unit> unitsInPlay;
 
@@ -38,11 +40,12 @@ namespace L5R
             this.cardsInFateDiscard = new List<Card>();
             this.cardsInDynastyDeck = dd;
             this.cardsInFateDeck = fd;
-            this.cardsInProvence=new List<List<Card>>();
             this.unitsInPlay = new List<Unit>();
             this.maxHandSize=8;
+            this.cardsInProvince = new L5R.Card[4, 2];
 
-            Console.WriteLine("In Player Class Constructor. Num of Provences is:" + this.cardsInProvence.Count.ToString());
+
+            Console.WriteLine("In Player Class Constructor. Num of Provences is:" + this.cardsInProvince.GetLength(0));
             
 
         }
@@ -172,9 +175,9 @@ namespace L5R
         }
 
 
-        public List<List<L5R.Card>> getCardsInProvence()
+        public L5R.Card[,] getCardsInProvence()
         {
-            return this.cardsInProvence;
+            return this.cardsInProvince;
         }
 
         public List<L5R.Unit> getUnitsInPlay()
@@ -196,15 +199,14 @@ namespace L5R
 
         public void recruitCardFromProvence(int provNum)
         {
-            List<L5R.Card> cardToPurchase = cardsInProvence[provNum];
+            L5R.Card cardToPurchase = cardsInProvince[provNum,0];
 
-            Console.WriteLine("Card selected to purchase is:" + cardToPurchase[0].CardName);
+            Console.WriteLine("Card selected to purchase is:" + cardToPurchase.CardName);
 
-            if (cardToPurchase[0].IsHolding == true)
+            if (cardToPurchase.IsHolding == true)
             {
-                this.cardsInPlay.Add(cardToPurchase[0]);
-                cardsInProvence[provNum].RemoveAt(0);
-                cardsInProvence[provNum].Add(cardsInDynastyDeck[0]);
+                this.cardsInPlay.Add(cardToPurchase);
+                cardsInProvince[provNum,0]=cardsInDynastyDeck[0];
                 cardsInDynastyDeck.RemoveAt(0);
             }
         }
