@@ -68,6 +68,11 @@
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Unit.cs" />
     <EmbeddedResource Include="DynastyPopup.resx">
       <DependentUpon>DynastyPopup.cs</DependentUpon>
@@ -75,9 +80,16 @@
     <EmbeddedResource Include="PlayArea.resx">
       <DependentUpon>PlayArea.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Player1DeckList.xml" />
+    <None Include="Resources\10590.jpg" />
+    <None Include="Resources\9504.jpg" />
+    <None Include="Resources\3436.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

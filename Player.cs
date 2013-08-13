@@ -26,6 +26,10 @@ namespace L5R
 
         private int maxHandSize;
         private int goldPool;
+        private L5R.PlayArea thePlayArea;
+
+
+        
         
 
         
@@ -51,6 +55,15 @@ namespace L5R
         }
 
 
+        public L5R.PlayArea ThePlayArea
+        {
+            get
+            { return thePlayArea;
+            }
+            set
+            {   thePlayArea=value;
+            }
+        }
 
         public int GoldPool
         {
@@ -207,6 +220,29 @@ namespace L5R
             {
                 this.cardsInPlay.Add(cardToPurchase);
                 cardsInProvince[provNum,0]=cardsInDynastyDeck[0];
+                cardsInProvince[provNum,0].IsFaceDown = true;
+
+                switch (provNum+1)
+                {
+                    case 1:
+                        thePlayArea.myP1.Image = cardsInProvince[provNum, 0].CardImage;
+                        Console.WriteLine("New Card in province:" + (provNum+1) + " Card name:" + cardsInProvince[provNum, 0].CardName);
+                        break;
+                    case 2:
+                        thePlayArea.myP2.Image = cardsInProvince[provNum, 0].CardImage;
+                        Console.WriteLine("New Card in province:" + (provNum + 1) + " Card name:" + cardsInProvince[provNum, 0].CardName);
+                        break;
+                    case 3:
+                        thePlayArea.myP3.Image = cardsInProvince[provNum, 0].CardImage;
+                        Console.WriteLine("New Card in province:" + (provNum + 1) + " Card name:" + cardsInProvince[provNum, 0].CardName);
+                        break;
+                    case 4:
+                        thePlayArea.myP4.Image = cardsInProvince[provNum, 0].CardImage;
+                        Console.WriteLine("New Card in province:" + (provNum + 1) + " Card name:" + cardsInProvince[provNum, 0].CardName);
+                        break;
+                }
+
+
                 cardsInDynastyDeck.RemoveAt(0);
             }
         }

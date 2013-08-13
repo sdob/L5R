@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PlayArea));
             this.myDynastyDiscard = new System.Windows.Forms.PictureBox();
             this.myP1 = new System.Windows.Forms.PictureBox();
-            this.MyP2 = new System.Windows.Forms.PictureBox();
+            this.myP2 = new System.Windows.Forms.PictureBox();
             this.myP3 = new System.Windows.Forms.PictureBox();
             this.myP4 = new System.Windows.Forms.PictureBox();
             this.myFateDiscard = new System.Windows.Forms.PictureBox();
@@ -44,7 +44,7 @@
             this.dynastyPhaseButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.myDynastyDiscard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.myP1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MyP2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.myP2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.myP3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.myP4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.myFateDiscard)).BeginInit();
@@ -70,33 +70,41 @@
             // 
             // myP1
             // 
+            this.myP1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.myP1.Location = new System.Drawing.Point(457, 587);
             this.myP1.Name = "myP1";
             this.myP1.Size = new System.Drawing.Size(126, 176);
+            this.myP1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.myP1.TabIndex = 1;
             this.myP1.TabStop = false;
             // 
-            // MyP2
+            // myP2
             // 
-            this.MyP2.Location = new System.Drawing.Point(589, 587);
-            this.MyP2.Name = "MyP2";
-            this.MyP2.Size = new System.Drawing.Size(126, 176);
-            this.MyP2.TabIndex = 2;
-            this.MyP2.TabStop = false;
+            this.myP2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.myP2.Location = new System.Drawing.Point(589, 587);
+            this.myP2.Name = "myP2";
+            this.myP2.Size = new System.Drawing.Size(126, 176);
+            this.myP2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.myP2.TabIndex = 2;
+            this.myP2.TabStop = false;
             // 
             // myP3
             // 
+            this.myP3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.myP3.Location = new System.Drawing.Point(721, 587);
             this.myP3.Name = "myP3";
             this.myP3.Size = new System.Drawing.Size(126, 176);
+            this.myP3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.myP3.TabIndex = 3;
             this.myP3.TabStop = false;
             // 
             // myP4
             // 
+            this.myP4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.myP4.Location = new System.Drawing.Point(853, 587);
             this.myP4.Name = "myP4";
             this.myP4.Size = new System.Drawing.Size(126, 176);
+            this.myP4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.myP4.TabIndex = 4;
             this.myP4.TabStop = false;
             // 
@@ -181,14 +189,14 @@
             this.Controls.Add(this.myFateDiscard);
             this.Controls.Add(this.myP4);
             this.Controls.Add(this.myP3);
-            this.Controls.Add(this.MyP2);
+            this.Controls.Add(this.myP2);
             this.Controls.Add(this.myP1);
             this.Controls.Add(this.myDynastyDiscard);
             this.Name = "PlayArea";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.myDynastyDiscard)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.myP1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MyP2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.myP2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.myP3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.myP4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.myFateDiscard)).EndInit();
@@ -204,19 +212,19 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox myDynastyDiscard;
-        private System.Windows.Forms.PictureBox myP1;
-        private System.Windows.Forms.PictureBox MyP2;
-        private System.Windows.Forms.PictureBox myP3;
-        private System.Windows.Forms.PictureBox myP4;
-        private System.Windows.Forms.PictureBox myFateDiscard;
-        private System.Windows.Forms.PictureBox oppDynastyDiscard;
-        private System.Windows.Forms.PictureBox opP1;
-        private System.Windows.Forms.PictureBox opP2;
-        private System.Windows.Forms.PictureBox opP3;
-        private System.Windows.Forms.PictureBox opP4;
-        private System.Windows.Forms.PictureBox opFateDiscard;
-        private System.Windows.Forms.Button dynastyPhaseButton;
+        public System.Windows.Forms.PictureBox myDynastyDiscard;
+        public System.Windows.Forms.PictureBox myP1;
+        public System.Windows.Forms.PictureBox myP2;
+        public System.Windows.Forms.PictureBox myP3;
+        public System.Windows.Forms.PictureBox myP4;
+        public System.Windows.Forms.PictureBox myFateDiscard;
+        public System.Windows.Forms.PictureBox oppDynastyDiscard;
+        public System.Windows.Forms.PictureBox opP1;
+        public System.Windows.Forms.PictureBox opP2;
+        public System.Windows.Forms.PictureBox opP3;
+        public System.Windows.Forms.PictureBox opP4;
+        public System.Windows.Forms.PictureBox opFateDiscard;
+        public System.Windows.Forms.Button dynastyPhaseButton;
         
     }
 

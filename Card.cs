@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Drawing;
 
 namespace L5R
 {
@@ -47,8 +48,22 @@ namespace L5R
 
         private List<L5R.Action> cardActions;
 
+        private Bitmap cardImage;
 
-        
+
+
+        public Bitmap CardImage
+        {
+            get
+            {
+                return cardImage;
+            }
+            set
+            {
+                cardImage = value;
+            }
+        }
+
         public bool IsEvent
         {
             get
@@ -407,13 +422,14 @@ namespace L5R
             this.hasSpellAttachments = false;
             this.cardActions = new List<Action>();
            
+           
         }
 
         public void addAction(L5R.Action action)
         {
             this.cardActions.Add(action);
-            Console.WriteLine("Card: " + this.cardName+" has had the following action added");
-            Console.WriteLine(action.getActionText());
+            //Console.WriteLine("Card: " + this.cardName+" has had the following action added");
+            //Console.WriteLine(action.getActionText());
         }
 
        

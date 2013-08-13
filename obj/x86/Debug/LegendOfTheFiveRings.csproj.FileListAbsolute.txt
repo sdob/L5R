@@ -6,3 +6,12 @@ C:\Users\mobrie12\Desktop\GitHub\L5R\bin\Debug\LegendOfTheFiveRings.exe
 C:\Users\mobrie12\Desktop\GitHub\L5R\bin\Debug\LegendOfTheFiveRings.pdb
 C:\Users\mobrie12\Desktop\GitHub\L5R\obj\x86\Debug\LegendOfTheFiveRings.exe
 C:\Users\mobrie12\Desktop\GitHub\L5R\obj\x86\Debug\LegendOfTheFiveRings.pdb
+C:\Users\mikeucc\Documents\GitHub\L5R\obj\x86\Debug\LegendOfTheFiveRings.exe
+C:\Users\mikeucc\Documents\GitHub\L5R\obj\x86\Debug\LegendOfTheFiveRings.pdb
+C:\Users\mikeucc\Documents\GitHub\L5R\bin\Debug\LegendOfTheFiveRings.exe
+C:\Users\mikeucc\Documents\GitHub\L5R\bin\Debug\LegendOfTheFiveRings.pdb
+C:\Users\mikeucc\Documents\GitHub\L5R\obj\x86\Debug\LegendOfTheFiveRings.csprojResolveAssemblyReference.cache
+C:\Users\mikeucc\Documents\GitHub\L5R\obj\x86\Debug\L5R.DynastyPopup.resources
+C:\Users\mikeucc\Documents\GitHub\L5R\obj\x86\Debug\L5R.PlayArea.resources
+C:\Users\mikeucc\Documents\GitHub\L5R\obj\x86\Debug\LegendOfTheFiveRings.csproj.GenerateResource.Cache
+C:\Users\mikeucc\Documents\GitHub\L5R\obj\x86\Debug\L5R.Properties.Resources.resources

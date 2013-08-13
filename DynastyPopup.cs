@@ -14,19 +14,20 @@ namespace L5R
         public DynastyPopup()
         {
             InitializeComponent();
-            Console.WriteLine("Dynasty selector initilised");
+            //Console.WriteLine("Dynasty selector initilised");
         }
 
         private void buttonPurchase_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("Number of Cards that can be bought:" + purchaseTableLayoutPanel.Controls.Count.ToString());
+            //Console.WriteLine("Number of Cards that can be bought:" + purchaseTableLayoutPanel.Controls.Count.ToString());
             foreach (RadioButton ctrl in purchaseTableLayoutPanel.Controls)
             {
 
                 if (ctrl.Checked == true)
                 {
-                    Console.WriteLine(ctrl.Text + " is selected:" + ctrl.Checked.ToString() + " Card number:" + ctrl.Tag.ToString());
+                    //Console.WriteLine(ctrl.Text + " is selected:" + ctrl.Checked.ToString() + " Card number:" + ctrl.Tag.ToString());
                     this.currentPlayer.recruitCardFromProvence((int)ctrl.Tag);
+                    this.Close();
                 }
             }
         }

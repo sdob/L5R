@@ -189,7 +189,7 @@ namespace L5R.GameState
 
             for (int i = 0; i < 4;i++ )
             {
-                Console.WriteLine("Iterations of provences:" + i.ToString());
+                
 
                 if (activePlayer.getCardsInProvence()[i, 0].IsPersonality == true && activePlayer.getCardsInProvence()[i, 0].IsFaceDown == false)
                 {

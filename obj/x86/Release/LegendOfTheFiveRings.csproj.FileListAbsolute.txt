@@ -1,0 +1,8 @@
+C:\Users\mikeucc\Documents\GitHub\L5R\bin\Release\LegendOfTheFiveRings.exe
+C:\Users\mikeucc\Documents\GitHub\L5R\bin\Release\LegendOfTheFiveRings.pdb
+C:\Users\mikeucc\Documents\GitHub\L5R\obj\x86\Release\L5R.DynastyPopup.resources
+C:\Users\mikeucc\Documents\GitHub\L5R\obj\x86\Release\L5R.PlayArea.resources
+C:\Users\mikeucc\Documents\GitHub\L5R\obj\x86\Release\L5R.Properties.Resources.resources
+C:\Users\mikeucc\Documents\GitHub\L5R\obj\x86\Release\LegendOfTheFiveRings.csproj.GenerateResource.Cache
+C:\Users\mikeucc\Documents\GitHub\L5R\obj\x86\Release\LegendOfTheFiveRings.exe
+C:\Users\mikeucc\Documents\GitHub\L5R\obj\x86\Release\LegendOfTheFiveRings.pdb
