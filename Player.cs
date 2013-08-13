@@ -225,19 +225,19 @@ namespace L5R
                 switch (provNum+1)
                 {
                     case 1:
-                        thePlayArea.myP1.Image = cardsInProvince[provNum, 0].CardImage;
+                        thePlayArea.myP1.Image = L5R.Properties.Resources.dynastyBack;
                         Console.WriteLine("New Card in province:" + (provNum+1) + " Card name:" + cardsInProvince[provNum, 0].CardName);
                         break;
                     case 2:
-                        thePlayArea.myP2.Image = cardsInProvince[provNum, 0].CardImage;
+                        thePlayArea.myP2.Image = L5R.Properties.Resources.dynastyBack;
                         Console.WriteLine("New Card in province:" + (provNum + 1) + " Card name:" + cardsInProvince[provNum, 0].CardName);
                         break;
                     case 3:
-                        thePlayArea.myP3.Image = cardsInProvince[provNum, 0].CardImage;
+                        thePlayArea.myP3.Image = L5R.Properties.Resources.dynastyBack;
                         Console.WriteLine("New Card in province:" + (provNum + 1) + " Card name:" + cardsInProvince[provNum, 0].CardName);
                         break;
                     case 4:
-                        thePlayArea.myP4.Image = cardsInProvince[provNum, 0].CardImage;
+                        thePlayArea.myP4.Image = L5R.Properties.Resources.dynastyBack;
                         Console.WriteLine("New Card in province:" + (provNum + 1) + " Card name:" + cardsInProvince[provNum, 0].CardName);
                         break;
                 }

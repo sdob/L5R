@@ -87,6 +87,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Player1DeckList.xml" />
+    <None Include="Resources\dynastyBack.jpg" />
     <None Include="Resources\10590.jpg" />
     <None Include="Resources\9504.jpg" />
     <None Include="Resources\3436.jpg" />
