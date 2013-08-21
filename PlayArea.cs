@@ -11,7 +11,7 @@ namespace L5R
 {
     public partial class PlayArea : Form
     {
-        private GameState.GameState gs;
+        private GameState gs;
         
         
         public PlayArea()
@@ -36,105 +36,107 @@ namespace L5R
 
         private void InitializeGame()
         {
+            // This is all... broken! I will add some tests later
+            // TODO: add tests
 
-            Console.WriteLine("Creating cards");
+            //Console.WriteLine("Creating cards");
 
-            L5R.Card testFateCard = new Card();
-            L5R.Card testDynastyCard = new Card();
+            //L5R.Card testFateCard = new Card();
+            //L5R.Card testDynastyCard = new Card();
 
-            L5R.Card testHolding1 = new Card();
-            L5R.Card testHolding2 = new Card();
-            L5R.Card testHolding3 = new Card();
-            L5R.Card testHolding4 = new Card();
-            L5R.Card testHolding5 = new Card();
-            L5R.Card testHolding6 = new Card();
-
-
-
-            Console.WriteLine("Creating decks");
-            List<L5R.Card> testFateDeck = new List<L5R.Card>();
-            List<L5R.Card> testDynastyDeck = new List<L5R.Card>();
+            //L5R.Card testHolding1 = new Card();
+            //L5R.Card testHolding2 = new Card();
+            //L5R.Card testHolding3 = new Card();
+            //L5R.Card testHolding4 = new Card();
+            //L5R.Card testHolding5 = new Card();
+            //L5R.Card testHolding6 = new Card();
 
 
-            testDynastyCard.IsPersonality = true;
-            testDynastyCard.BaseForce = 0;
-            testDynastyCard.BaseChi = 4;
-            testDynastyCard.CardName = "Togashi Mitsu";
-            testDynastyCard.BaseGoldCost = 7;
-            testDynastyCard.BasePersonalHonour = 1;
-            testDynastyCard.HonourRequirment = 5;
-            testDynastyCard.addAction(new MeleeAttack(8, "Battle:Melee 8 attack"));
-            testDynastyCard.CardImage = L5R.Properties.Resources._10590;
+
+            //Console.WriteLine("Creating decks");
+            //List<L5R.Card> testFateDeck = new List<L5R.Card>();
+            //List<L5R.Card> testDynastyDeck = new List<L5R.Card>();
 
 
-            testHolding1.IsHolding = true;
-            testHolding1.CardName = "Small Farm";
-            testHolding1.BaseGoldCost = 0;
-            testHolding1.CardImage = L5R.Properties.Resources._3436;
-
-            testHolding2.IsHolding = true;
-            testHolding2.CardName = "Small Farm";
-            testHolding2.BaseGoldCost = 0;
-            testHolding2.CardImage = L5R.Properties.Resources._3436;
-
-            testHolding3.IsHolding = true;
-            testHolding3.CardName = "Small Farm";
-            testHolding3.BaseGoldCost = 0;
-            testHolding3.CardImage = L5R.Properties.Resources._3436;
+            //testDynastyCard.IsPersonality = true;
+            //testDynastyCard.BaseForce = 0;
+            //testDynastyCard.BaseChi = 4;
+            //testDynastyCard.name = "Togashi Mitsu";
+            //testDynastyCard.BaseGoldCost = 7;
+            //testDynastyCard.BasePersonalHonour = 1;
+            //testDynastyCard.HonourRequirment = 5;
+            //testDynastyCard.addAction(new MeleeAttack(8, "Battle:Melee 8 attack"));
+            //testDynastyCard.CardImage = L5R.Properties.Resources._10590;
 
 
-            testHolding4.IsHolding = true;
-            testHolding4.CardName = "Remote village";
-            testHolding4.BaseGoldCost = 3;
-            testHolding4.CardImage = L5R.Properties.Resources._9504;
+            //testHolding1.IsHolding = true;
+            //testHolding1.name = "Small Farm";
+            //testHolding1.BaseGoldCost = 0;
+            //testHolding1.CardImage = L5R.Properties.Resources._3436;
 
-            testHolding5.IsHolding = true;
-            testHolding5.CardName = "Remote village";
-            testHolding5.BaseGoldCost = 3;
-            testHolding5.CardImage = L5R.Properties.Resources._9504;
+            //testHolding2.IsHolding = true;
+            //testHolding2.name = "Small Farm";
+            //testHolding2.BaseGoldCost = 0;
+            //testHolding2.CardImage = L5R.Properties.Resources._3436;
 
-            testHolding6.IsHolding = true;
-            testHolding6.CardName = "Remote village";
-            testHolding6.BaseGoldCost = 3;
-            testHolding6.CardImage = L5R.Properties.Resources._9504;
+            //testHolding3.IsHolding = true;
+            //testHolding3.name = "Small Farm";
+            //testHolding3.BaseGoldCost = 0;
+            //testHolding3.CardImage = L5R.Properties.Resources._3436;
+
+
+            //testHolding4.IsHolding = true;
+            //testHolding4.name = "Remote village";
+            //testHolding4.BaseGoldCost = 3;
+            //testHolding4.CardImage = L5R.Properties.Resources._9504;
+
+            //testHolding5.IsHolding = true;
+            //testHolding5.name = "Remote village";
+            //testHolding5.BaseGoldCost = 3;
+            //testHolding5.CardImage = L5R.Properties.Resources._9504;
+
+            //testHolding6.IsHolding = true;
+            //testHolding6.name = "Remote village";
+            //testHolding6.BaseGoldCost = 3;
+            //testHolding6.CardImage = L5R.Properties.Resources._9504;
 
             
 
 
-            testDynastyDeck.Add(testHolding1);
-            testDynastyDeck.Add(testHolding2);
-            testDynastyDeck.Add(testHolding3);
-            testDynastyDeck.Add(testHolding4);
+            //testDynastyDeck.Add(testHolding1);
+            //testDynastyDeck.Add(testHolding2);
+            //testDynastyDeck.Add(testHolding3);
+            //testDynastyDeck.Add(testHolding4);
 
 
-            testDynastyDeck.Add(testDynastyCard);
-            testFateDeck.Add(testFateCard);
+            //testDynastyDeck.Add(testDynastyCard);
+            //testFateDeck.Add(testFateCard);
 
-            Console.WriteLine("Creating players");
-            L5R.Player player1 = new L5R.Player(testDynastyDeck, testFateDeck);
-            L5R.Player player2 = new L5R.Player(testDynastyDeck, testFateDeck);
+            //Console.WriteLine("Creating players");
+            //L5R.Player player1 = new L5R.Player(testDynastyDeck, testFateDeck);
+            //L5R.Player player2 = new L5R.Player(testDynastyDeck, testFateDeck);
 
 
-            player1.ThePlayArea = this;
-            player2.ThePlayArea = this;
+            //player1.ThePlayArea = this;
+            //player2.ThePlayArea = this;
 
 
            
 
-            player1.getCardsInProvence()[0,0]=testDynastyCard;
-            this.myP1.Image = testDynastyCard.CardImage;
+            //player1.getCardsInProvence()[0,0]=testDynastyCard;
+            //this.myP1.Image = testDynastyCard.CardImage;
 
-            player1.getCardsInProvence()[1,0]=testHolding5;
-            this.myP2.Image = testHolding5.CardImage;
-            player1.getCardsInProvence()[2,0]=testDynastyCard;
-            this.myP3.Image = testDynastyCard.CardImage;
-            player1.getCardsInProvence()[3,0]=testHolding6;
-            this.myP4.Image = testHolding6.CardImage;
+            //player1.getCardsInProvence()[1,0]=testHolding5;
+            //this.myP2.Image = testHolding5.CardImage;
+            //player1.getCardsInProvence()[2,0]=testDynastyCard;
+            //this.myP3.Image = testDynastyCard.CardImage;
+            //player1.getCardsInProvence()[3,0]=testHolding6;
+            //this.myP4.Image = testHolding6.CardImage;
 
-            Console.WriteLine("Number of provances:" + player1.getCardsInProvence().GetLength(0).ToString());
+            //Console.WriteLine("Number of provances:" + player1.getCardsInProvence().GetLength(0).ToString());
 
-            Console.WriteLine("Creating gamestate");
-            this.gs = new GameState.GameState(player1, player2);
+            //Console.WriteLine("Creating gamestate");
+            //this.gs = new GameState.GameState(player1, player2);
         
         }
 
