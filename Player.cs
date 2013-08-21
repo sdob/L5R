@@ -7,7 +7,6 @@ namespace L5R
 {
     class Player
     {
-        private bool isActivePlayer;
         private bool playerPerformingAction;
         private bool hasPassed;
 
@@ -36,7 +35,6 @@ namespace L5R
 
         public Player(List<L5R.Card> dd ,List<L5R.Card> fd)
         {
-            this.isActivePlayer = false;
             this.playerPerformingAction = false;
             this.cardsInPlay=new List<Card>();
             this.cardsInHand = new List<Card>();
@@ -110,21 +108,6 @@ namespace L5R
         public void setPlayerPerformingAction(bool isPerforming)
         {
             this.playerPerformingAction = isPerforming;
-        }
-        
-        public void setAsActivePlayer()
-        {
-            this.isActivePlayer = true; 
-        }
-
-        public void setAsInactivePlayer()
-        {
-            this.isActivePlayer = false;
-        }
-
-        public bool getIsActivePlayer()
-        {
-            return this.isActivePlayer;
         }
 
         public List<L5R.Card> getCardsInPlay()
