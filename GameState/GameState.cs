@@ -15,8 +15,21 @@ namespace L5R.GameState
 
         private L5R.Player player1;
         private L5R.Player player2;
+        // We should only store one variable; otherwise it gets confusing and
+        // we are forced to ensure that every change covers both
         private L5R.Player activePlayer;
-        private L5R.Player nonActivePlayer;
+        // We don't need to set the inactivePlayer directly; 
+        private Player inactivePlayer
+        {
+            get
+            {
+                if (activePlayer == player1)
+                {
+                    return player2;
+                }
+                return player1;
+            }
+        }
 
         private string turnPhase;
 
@@ -41,8 +54,6 @@ namespace L5R.GameState
             this.player2 = p2;
             //place test to see who active player should be;
             this.activePlayer = p1;
-            this.nonActivePlayer = p2;
-            
 
             this.gameOver = false;
             this.unitID = 0;
@@ -70,6 +81,18 @@ namespace L5R.GameState
             return unitID;
         }
 
+        private void swapActivePlayer()
+        {
+            if (activePlayer == player1)
+            {
+                activePlayer = player2;
+            }
+            else
+            {
+                activePlayer = player1;
+            }
+        }
+
        
         public void gameLoop()
         {
@@ -77,7 +100,8 @@ namespace L5R.GameState
             {
                 if (this.turnCounter != 1)
                 { // swap who the active player is
-                    if (player1.getIsActivePlayer() == true)
+                    swapActivePlayer();
+                    /*if (player1.getIsActivePlayer() == true)
                     {
                         this.player1.setAsInactivePlayer();
                         this.player2.setAsActivePlayer();
@@ -90,7 +114,7 @@ namespace L5R.GameState
                         this.player1.setAsActivePlayer();
                         this.activePlayer = player1;
                         this.nonActivePlayer = player2;
-                    }
+                    }*/
                 }
 
                 // perform straighten phase
@@ -124,7 +148,7 @@ namespace L5R.GameState
 
         public void performStraightenPhase()
         { 
-            foreach(L5R.Card playerCard in activePlayer.getCardsInPlay())
+            foreach(L5R.Card playerCard in activePlayer.cardsInPlay)
             {
                 playerCard.IsBowed = false;
             }
@@ -148,30 +172,27 @@ namespace L5R.GameState
         {
             for (int i = 0; i < 4; i++)
             {
-                if (activePlayer.getCardsInProvence()[i, 0].IsFaceDown)
+                if (activePlayer.cardsInProvince[i, 0].IsFaceDown)
                 {
-                    activePlayer.getCardsInProvence()[i, 0].IsFaceDown = false;
+                    activePlayer.cardsInProvince[i, 0].IsFaceDown = false;
                 }
 
-                if (activePlayer.getCardsInProvence()[i, 0].IsRegion == true)
+                if (activePlayer.cardsInProvince[i, 0].IsRegion == true)
                 {   //bring regionIntoPlay
                 }
-            }   
-            
-
-          
+            }
         }
 
         public void performLimitedPhase()
         {
             //Set both players status to not have passed
             activePlayer.HasPassed = false;
-            nonActivePlayer.HasPassed = false;
+            inactivePlayer.HasPassed = false;
             
-            while (activePlayer.HasPassed == false && nonActivePlayer.HasPassed == false)
+            while (activePlayer.HasPassed == false && inactivePlayer.HasPassed == false)
             {
                 activePlayer.performAction(this.turnPhase);
-                nonActivePlayer.performAction(this.turnPhase);
+                inactivePlayer.performAction(this.turnPhase);
             }
 
         }
@@ -179,23 +200,24 @@ namespace L5R.GameState
         public void performBattlePhase()
         {
             activePlayer.HasPassed = false;
-            nonActivePlayer.HasPassed = false; 
+            inactivePlayer.HasPassed = false; 
         }
 
         public void performDynastyPhase()
         {
 
+            // XXX: We should pull GUI stuff out of the game logic
+            // straight away --- this will be a nightmare to maintain
+            // otherwise
             List<RadioButton> listOfRadioButtons = new List<RadioButton>();
 
             for (int i = 0; i < 4;i++ )
             {
-                
-
-                if (activePlayer.getCardsInProvence()[i, 0].IsPersonality == true && activePlayer.getCardsInProvence()[i, 0].IsFaceDown == false)
+                if (activePlayer.cardsInProvince[i, 0].IsPersonality == true && activePlayer.cardsInProvince[i, 0].IsFaceDown == false)
                 {
-                    Console.WriteLine("Card in provence " + i + " is a personality and is called: " + activePlayer.getCardsInProvence()[i, 0].CardName);
+                    Console.WriteLine("Card in province " + i + " is a personality and is called: " + activePlayer.cardsInProvince[i, 0].CardName);
                     RadioButton cardButton = new RadioButton();
-                    cardButton.Text = "Personality:" + activePlayer.getCardsInProvence()[i, 0].CardName + " Gold Cost:" + activePlayer.getCardsInProvence()[i, 0].BaseGoldCost.ToString();
+                    cardButton.Text = "Personality:" + activePlayer.cardsInProvince[i, 0].CardName + " Gold Cost:" + activePlayer.cardsInProvince[i, 0].BaseGoldCost.ToString();
                     cardButton.Tag = i;
 
                     listOfRadioButtons.Add(cardButton);
@@ -204,14 +226,14 @@ namespace L5R.GameState
                     //Add to the list of cards that can be bought.
                 }
 
-                if (activePlayer.getCardsInProvence()[i, 0].IsHolding == true && activePlayer.getCardsInProvence()[i, 0].IsFaceDown == false)
+                if (activePlayer.cardsInProvince[i, 0].IsHolding == true && activePlayer.cardsInProvince[i, 0].IsFaceDown == false)
                 {
-                    Console.WriteLine("Card in provence " + i + " is a holding and is called: " + activePlayer.getCardsInProvence()[i, 0].CardName);
+                    Console.WriteLine("Card in province " + i + " is a holding and is called: " + activePlayer.cardsInProvince[i, 0].CardName);
                     //Add to the list of cards that can be bought.
-                    // This is the card in the provence activePlayer.getCardsInProvence()[i][0];
+                    // This is the card in the province activePlayer.cardsInProvince[i][0];
                     // Add to list of possible cards that can be bought.
                     RadioButton cardButton = new RadioButton();
-                    cardButton.Text = "Holding:" + activePlayer.getCardsInProvence()[i, 0].CardName + " Gold Cost:" + activePlayer.getCardsInProvence()[i,0].BaseGoldCost.ToString();
+                    cardButton.Text = "Holding:" + activePlayer.cardsInProvince[i, 0].CardName + " Gold Cost:" + activePlayer.cardsInProvince[i,0].BaseGoldCost.ToString();
                     cardButton.Tag = i;
 
                     listOfRadioButtons.Add(cardButton);
@@ -251,10 +273,10 @@ namespace L5R.GameState
 
         public void PerformEndPhase()
         {
-            activePlayer.getCardsInHand().Add(activePlayer.getCardsInFateDeck()[0]);
-            activePlayer.getCardsInFateDeck().RemoveAt(0);
+            activePlayer.cardsInHand.Add(activePlayer.cardsInFateDeck[0]);
+            activePlayer.cardsInFateDeck.RemoveAt(0);
 
-            if (activePlayer.getCardsInHand().Count > activePlayer.MaxHandSize)
+            if (activePlayer.cardsInHand.Count > activePlayer.MaxHandSize)
             {
                 //Player Must discard down to 8 cards
             }

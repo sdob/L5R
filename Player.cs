@@ -3,23 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace L5R
-{
-    class Player
-    {
+namespace L5R {
+    class Player {
         private bool playerPerformingAction;
         private bool hasPassed;
 
-
-        private List<L5R.Card> cardsInPlay;
-        private List<L5R.Card> cardsInFateDeck;
+        /*private List<L5R.Card> cardsInFateDeck;
         private List<L5R.Card> cardsInDynastyDeck;
         private List<L5R.Card> cardsInFateDiscard;
-        private List<L5R.Card> cardsInDynastyDiscard;
-        private List<L5R.Card> cardsInHand;
-        private L5R.Card[,] cardsInProvince;
+        private L5R.Card[,] cardsInProvince;*/
 
-       
+
 
         private List<L5R.Unit> unitsInPlay;
 
@@ -28,188 +22,173 @@ namespace L5R
         private L5R.PlayArea thePlayArea;
 
 
-        
-        
 
-        
 
-        public Player(List<L5R.Card> dd ,List<L5R.Card> fd)
-        {
+
+
+
+        public Player(List<L5R.Card> dd, List<L5R.Card> fd) {
             this.playerPerformingAction = false;
-            this.cardsInPlay=new List<Card>();
+            this.cardsInPlay = new List<Card>();
             this.cardsInHand = new List<Card>();
             this.cardsInDynastyDiscard = new List<Card>();
             this.cardsInFateDiscard = new List<Card>();
             this.cardsInDynastyDeck = dd;
             this.cardsInFateDeck = fd;
             this.unitsInPlay = new List<Unit>();
-            this.maxHandSize=8;
+            this.maxHandSize = 8;
             this.cardsInProvince = new L5R.Card[4, 2];
 
 
             Console.WriteLine("In Player Class Constructor. Num of Provences is:" + this.cardsInProvince.GetLength(0));
-            
+
 
         }
 
 
-        public L5R.PlayArea ThePlayArea
-        {
-            get
-            { return thePlayArea;
+        public L5R.PlayArea ThePlayArea {
+            get {
+                return thePlayArea;
             }
-            set
-            {   thePlayArea=value;
+            set {
+                thePlayArea = value;
             }
         }
 
-        public int GoldPool
-        {
-            get
-            {
+        public int GoldPool {
+            get {
                 return goldPool;
             }
-            set
-            {
+            set {
                 goldPool = value;
             }
         }
-        
-        
-        
-        public int MaxHandSize
-        {
-            get
-            {
+
+
+
+        public int MaxHandSize {
+            get {
                 return maxHandSize;
             }
-            set
-            {
+            set {
                 maxHandSize = value;
             }
         }
-        
-        
-        public bool HasPassed
-        {
-            get
-            {   return this.hasPassed;
+
+
+        public bool HasPassed {
+            get {
+                return this.hasPassed;
             }
-            set
-            {   this.hasPassed=value;
+            set {
+                this.hasPassed = value;
             }
         }
-        
-        public bool getPlayerPerformingAction()
-        {
+
+        public bool getPlayerPerformingAction() {
             return this.playerPerformingAction;
         }
 
-        public void setPlayerPerformingAction(bool isPerforming)
-        {
+        public void setPlayerPerformingAction(bool isPerforming) {
             this.playerPerformingAction = isPerforming;
         }
 
-        public List<L5R.Card> getCardsInPlay()
-        {
-            return this.cardsInPlay;
+        /*********************************************************************
+         * Card lists (in play; in hand; discards; etc.)
+         *********************************************************************/
+        
+        public List<Card> cardsInPlay {
+            get;
+            set;
         }
 
-        public List<L5R.Card> getCardsInHand()
-        {
-            return this.cardsInHand;
+        public List<Card> cardsInHand {
+            get;
+            set;
         }
 
-        public List<L5R.Card> getCardsInDynastyDiscard()
-        {
-            return this.cardsInDynastyDiscard;
+        public List<Card> cardsInDynastyDeck {
+            get;
+            set;
         }
 
-        public List<L5R.Card> getCardsInFateDiscard()
-        {
+        public List<Card> cardsInDynastyDiscard {
+            get;
+            set;
+        }
+
+        public List<Card> cardsInFateDeck {
+            get;
+            set;
+        }
+
+        public List<Card> cardsInFateDiscard {
+            get;
+            set;
+        }
+
+        public Card[,] cardsInProvince {
+            get;
+            set;
+        }
+
+        /*
+        public List<L5R.Card> getCardsInFateDiscard() {
             return this.cardsInFateDiscard;
         }
 
-        public List<L5R.Card> getCardsInDynastyDeck()
-        {
+        public List<L5R.Card> getCardsInDynastyDeck() {
             return this.cardsInDynastyDeck;
         }
 
-        public List<L5R.Card> getCardsInFateDeck()
-        {
+        public List<L5R.Card> getCardsInFateDeck() {
             return this.cardsInFateDeck;
         }
 
-        public void setCardsInPlay(List<L5R.Card> inplay)
-        {
-            this.cardsInPlay = inplay;
-        }
-
-        public void setCardsInHand(List<L5R.Card> inHand)
-        {
-            this.cardsInHand = inHand;
-        }
-        
-        public void setCardsInDynastyDiscard(List<L5R.Card> dDiscard)
-        {
-            this.cardsInDynastyDiscard = dDiscard;
-        }
-        
-        public void setCardsInFateDiscard(List<L5R.Card> fDiscard)
-        {
+        public void setCardsInFateDiscard(List<L5R.Card> fDiscard) {
             this.cardsInFateDiscard = fDiscard;
         }
-        
-        public void setCardsInDynastyDeck(List<L5R.Card> dynasty)
-        {
+
+        public void setCardsInDynastyDeck(List<L5R.Card> dynasty) {
             this.cardsInDynastyDeck = dynasty;
         }
-        
-        public void setCardsInFateDeck(List<L5R.Card> fate)
-        {
+
+        public void setCardsInFateDeck(List<L5R.Card> fate) {
             this.cardsInFateDeck = fate;
         }
 
-
-        public L5R.Card[,] getCardsInProvence()
-        {
+        public L5R.Card[,] getCardsInProvence() {
             return this.cardsInProvince;
-        }
+        }*/
 
-        public List<L5R.Unit> getUnitsInPlay()
-        {
+        public List<L5R.Unit> getUnitsInPlay() {
             return this.unitsInPlay;
         }
 
 
-        public void performAction(String phase)
-        { 
+        public void performAction(String phase) {
             //Get a list of actions to perform durning the appropiate hase
         }
 
 
-        public void addGoldToPool()
-        {
+        public void addGoldToPool() {
             //Create a popup that will parse through card that can produce gold (Check boxes)
         }
 
-        public void recruitCardFromProvence(int provNum)
-        {
-            L5R.Card cardToPurchase = cardsInProvince[provNum,0];
+        public void recruitCardFromProvence(int provNum) {
+            L5R.Card cardToPurchase = cardsInProvince[provNum, 0];
 
             Console.WriteLine("Card selected to purchase is:" + cardToPurchase.CardName);
 
-            if (cardToPurchase.IsHolding == true)
-            {
+            if (cardToPurchase.IsHolding == true) {
                 this.cardsInPlay.Add(cardToPurchase);
-                cardsInProvince[provNum,0]=cardsInDynastyDeck[0];
-                cardsInProvince[provNum,0].IsFaceDown = true;
+                cardsInProvince[provNum, 0] = cardsInDynastyDeck[0];
+                cardsInProvince[provNum, 0].IsFaceDown = true;
 
-                switch (provNum+1)
-                {
+                switch (provNum + 1) {
                     case 1:
                         thePlayArea.myP1.Image = L5R.Properties.Resources.dynastyBack;
-                        Console.WriteLine("New Card in province:" + (provNum+1) + " Card name:" + cardsInProvince[provNum, 0].CardName);
+                        Console.WriteLine("New Card in province:" + (provNum + 1) + " Card name:" + cardsInProvince[provNum, 0].CardName);
                         break;
                     case 2:
                         thePlayArea.myP2.Image = L5R.Properties.Resources.dynastyBack;

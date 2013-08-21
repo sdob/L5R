@@ -15,3 +15,5 @@ C:\Users\mikeucc\Documents\GitHub\L5R\obj\x86\Debug\L5R.DynastyPopup.resources
 C:\Users\mikeucc\Documents\GitHub\L5R\obj\x86\Debug\L5R.PlayArea.resources
 C:\Users\mikeucc\Documents\GitHub\L5R\obj\x86\Debug\LegendOfTheFiveRings.csproj.GenerateResource.Cache
 C:\Users\mikeucc\Documents\GitHub\L5R\obj\x86\Debug\L5R.Properties.Resources.resources
+C:\Documents and Settings\sdob_2\My Documents\L5R\obj\x86\Debug\LegendOfTheFiveRings.exe
+C:\Documents and Settings\sdob_2\My Documents\L5R\obj\x86\Debug\LegendOfTheFiveRings.pdb
