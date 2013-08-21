@@ -81,6 +81,8 @@ namespace L5R.GameState
             return unitID;
         }
 
+        /** Swaps active players
+         */
         private void swapActivePlayer()
         {
             if (activePlayer == player1)
@@ -101,20 +103,6 @@ namespace L5R.GameState
                 if (this.turnCounter != 1)
                 { // swap who the active player is
                     swapActivePlayer();
-                    /*if (player1.getIsActivePlayer() == true)
-                    {
-                        this.player1.setAsInactivePlayer();
-                        this.player2.setAsActivePlayer();
-                        this.activePlayer = player2;
-                        this.nonActivePlayer = player1;
-                    }
-                    else
-                    {
-                        this.player2.setAsInactivePlayer();
-                        this.player1.setAsActivePlayer();
-                        this.activePlayer = player1;
-                        this.nonActivePlayer = player2;
-                    }*/
                 }
 
                 // perform straighten phase
@@ -142,7 +130,6 @@ namespace L5R.GameState
                 this.turnPhase = straightenPhase;
 
                 this.turnCounter++;
-                
             }
         }
 
@@ -161,10 +148,6 @@ namespace L5R.GameState
                 }
             
             }
-
-           
-            
-
             //Update windows form
         }
 
