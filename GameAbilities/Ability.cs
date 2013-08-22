@@ -20,7 +20,7 @@ namespace L5R.GameAbilities {
 
         public void use(GameState gs, Player owner) {
             if (condition.isSatisfiedBy(gs, owner)) {
-                result.perform(gs);
+                result.performAction(gs);
             }
         }
     }

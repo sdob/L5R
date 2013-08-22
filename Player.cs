@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using L5R.Cards;
+using L5R.Alignments;
 
 namespace L5R {
     public class Player {
@@ -10,7 +11,12 @@ namespace L5R {
         private bool hasPassed;
         //private List<L5R.Unit> unitsInPlay;
 
-        private int maxHandSize;
+        public Stronghold stronghold {
+            get;
+            private set;
+        }
+
+        private int maxHandSize; // apparently variable!
         private int goldPool;
         private L5R.PlayArea thePlayArea;
 
@@ -27,7 +33,7 @@ namespace L5R {
             //this.cardsInProvince = new L5R.Card[4, 2];
             this.cardsInProvince = new List<List<DynastyCard>>(4);
 
-            // Console.WriteLine("In Player Class Constructor. Num of Provences is:" + this.cardsInProvince.GetLength(0));
+            // Console.WriteLine("In Player Class Constructor. Num of Provinces is:" + this.cardsInProvince.GetLength(0));
             Console.WriteLine("In Player Class Constructor. Num of Provinces is:" + this.cardsInProvince.Count);
         }
 
@@ -122,6 +128,17 @@ namespace L5R {
             get;
             set;
         }
+
+        public Alignments.Alignment alignment {
+            get {
+                // TODO: allow for effects that change the player's alignment
+                return stronghold.alignment;
+            }
+        }
+
+        /********************************************
+         * Game behaviour
+         */
 
         public void performAction(String phase) {
             //Get a list of actions to perform durning the appropiate hase

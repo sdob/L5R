@@ -7,6 +7,10 @@ namespace L5R.Cards {
     public class Stronghold : Card {
 
         //string name {get; set;}
+        public Alignments.Alignment alignment {
+            get;
+            private set;
+        }
         int baseStrength {get; set;}
         int goldProduction {get; set;}
         int startingFamilyHonor {get; set;}

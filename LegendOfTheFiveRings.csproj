@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Alignments.cs" />
     <Compile Include="Cards\Attachment.cs" />
     <Compile Include="Cards\Celestial.cs" />
     <Compile Include="Cards\DynastyCard.cs" />
@@ -65,6 +66,8 @@
       <DependentUpon>DynastyPopup.cs</DependentUpon>
     </Compile>
     <Compile Include="Cards\EventCard.cs" />
+    <Compile Include="eventlisteners\Event.cs" />
+    <Compile Include="eventlisteners\EventListener.cs" />
     <Compile Include="GameAbilities\Ability.cs" />
     <Compile Include="GameAbilities\Action.cs" />
     <Compile Include="Cards\Card.cs" />

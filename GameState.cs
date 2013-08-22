@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using L5R.Cards;
+using L5R.eventlisteners;
 
 namespace L5R {
     public class GameState {
@@ -32,6 +33,8 @@ namespace L5R {
 
         private bool gameOver;
 
+        /* Event listeners */
+        private List<EventListener> eventListeners = new List<EventListener>();
 
         private const string straightenPhase = "straighten";
         private const string eventsPhase = "event";
@@ -83,6 +86,19 @@ namespace L5R {
             }
         }
 
+        /* Methods for notifying event listeners of things happening in-game
+         */
+        public void notifyEndOfStraightenPhase() {
+            foreach (EventListener l in this.eventListeners) {
+                l.eventOccurred(Events.END_OF_STRAIGHTEN_PHASE);
+            }
+        }
+
+        public void notifyEndOfEventsPhase() {
+            foreach (EventListener l in this.eventListeners) {
+                l.eventOccurred(Events.END_OF_EVENTS_PHASE);
+            }
+        }
 
         public void gameLoop() {
             while (this.gameOver != true) {
@@ -92,13 +108,17 @@ namespace L5R {
 
                 // perform straighten phase
                 this.performStraightenPhase();
-                this.turnPhase = eventsPhase;
+                // notify event listeners that the straighten phase has ended
+                notifyEndOfStraightenPhase();
 
                 // perform events phase
+                this.turnPhase = eventsPhase;
                 this.performEventsPhase();
-                this.turnPhase = limitedPhase;
+                // phase is over; notify listeners
+                notifyEndOfEventsPhase();
 
                 //perform limited phase
+                this.turnPhase = limitedPhase;
                 this.performLimitedPhase();
                 this.turnPhase = battlePhase;
 
