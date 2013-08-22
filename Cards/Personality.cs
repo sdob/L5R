@@ -10,7 +10,7 @@ namespace L5R.Cards {
         int personalHonor {get;set; }
 
         override public void getDiscardedBy(Player p) {
-            // Special behaviour for discarding personalities --- they don't live in the discard pile
+            // Special behaviour for discarding personalities --- they don't live in the discard pile, right?
         }
     }
 }

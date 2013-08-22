@@ -6,3 +6,13 @@ C:\Users\mikeucc\Documents\GitHub\L5R\obj\x86\Release\L5R.Properties.Resources.r
 C:\Users\mikeucc\Documents\GitHub\L5R\obj\x86\Release\LegendOfTheFiveRings.csproj.GenerateResource.Cache
 C:\Users\mikeucc\Documents\GitHub\L5R\obj\x86\Release\LegendOfTheFiveRings.exe
 C:\Users\mikeucc\Documents\GitHub\L5R\obj\x86\Release\LegendOfTheFiveRings.pdb
+C:\Documents and Settings\sdob_2\My Documents\L5R\obj\x86\Release\ResolveAssemblyReference.cache
+C:\Documents and Settings\sdob_2\My Documents\L5R\obj\x86\Release\L5R.DynastyPopup.resources
+C:\Documents and Settings\sdob_2\My Documents\L5R\obj\x86\Release\L5R.PlayArea.resources
+C:\Documents and Settings\sdob_2\My Documents\L5R\obj\x86\Release\L5R.Properties.Resources.resources
+C:\Documents and Settings\sdob_2\My Documents\L5R\obj\x86\Release\GenerateResource.read.1.tlog
+C:\Documents and Settings\sdob_2\My Documents\L5R\obj\x86\Release\GenerateResource.write.1.tlog
+C:\Documents and Settings\sdob_2\My Documents\L5R\obj\x86\Release\LegendOfTheFiveRings.exe
+C:\Documents and Settings\sdob_2\My Documents\L5R\obj\x86\Release\LegendOfTheFiveRings.pdb
+C:\Documents and Settings\sdob_2\My Documents\L5R\bin\Release\LegendOfTheFiveRings.exe
+C:\Documents and Settings\sdob_2\My Documents\L5R\bin\Release\LegendOfTheFiveRings.pdb

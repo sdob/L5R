@@ -2,21 +2,23 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using L5R.Cards;
 
 namespace L5R
 {
     class MeleeAttack : Action
     {
 
-        private L5R.GameState.GameState currentGameState;
-        private List<L5R.Card> legalTargets;
-        private List<L5R.Card> validTargets;
-        private List<L5R.Card> myCardsInPlay;
-        private List<L5R.Card> opCardsInPlay;
-        private List<L5R.Card> myFateDiscard;
-        private List<L5R.Card> myDynastyDiscard;
-        private List<L5R.Card> opFateDiscard;
-        private List<L5R.Card> opDynastyDiscard;
+        private GameState currentGameState;
+        // XXX: No way do we need all of these as instance variables
+        private List<Card> legalTargets;
+        private List<Card> validTargets;
+        private List<Card> myCardsInPlay;
+        private List<Card> opCardsInPlay;
+        private List<FateCard> myFateDiscard;
+        private List<DynastyCard> myDynastyDiscard;
+        private List<FateCard> opFateDiscard;
+        private List<DynastyCard> opDynastyDiscard;
         private int meleeStrength;
         private string actionText;
 
@@ -34,32 +36,33 @@ namespace L5R
         }
 
 
-        public void setActiveGameState(L5R.GameState.GameState gs)
+        public void setActiveGameState(GameState gs)
         {
             this.currentGameState = gs;
+            // TODO: Man, this looks ugly...
             if (gs.getPlayer1().getPlayerPerformingAction() == true)
             {
-                this.opCardsInPlay = gs.getPlayer2().getCardsInPlay();
-                this.opDynastyDiscard = gs.getPlayer2().getCardsInDynastyDiscard();
-                this.opFateDiscard = gs.getPlayer2().getCardsInFateDiscard();
+                this.opCardsInPlay = gs.getPlayer2().cardsInPlay;
+                this.opDynastyDiscard = gs.getPlayer2().cardsInDynastyDiscard;
+                this.opFateDiscard = gs.getPlayer2().cardsInFateDiscard;
                 this.playerActionPerformedOn = gs.getPlayer2();
 
-                this.myDynastyDiscard = gs.getPlayer1().getCardsInDynastyDiscard();
-                this.myFateDiscard = gs.getPlayer1().getCardsInFateDiscard();
-                this.myCardsInPlay = gs.getPlayer1().getCardsInPlay();
+                this.myDynastyDiscard = gs.getPlayer1().cardsInDynastyDiscard;
+                this.myFateDiscard = gs.getPlayer1().cardsInFateDiscard;
+                this.myCardsInPlay = gs.getPlayer1().cardsInPlay;
                 this.playerPerformingAction = gs.getPlayer1();
             }
             else
             {
-                this.opCardsInPlay = gs.getPlayer1().getCardsInPlay();
-                this.opDynastyDiscard = gs.getPlayer1().getCardsInDynastyDeck();
-                this.opFateDiscard = gs.getPlayer1().getCardsInFateDiscard();
+                this.opCardsInPlay = gs.getPlayer1().cardsInPlay;
+                this.opDynastyDiscard = gs.getPlayer1().cardsInDynastyDeck;
+                this.opFateDiscard = gs.getPlayer1().cardsInFateDiscard;
                 this.playerActionPerformedOn = gs.getPlayer1();
 
 
-                this.myDynastyDiscard = gs.getPlayer2().getCardsInDynastyDiscard();
-                this.myFateDiscard = gs.getPlayer2().getCardsInFateDiscard();
-                this.myCardsInPlay = gs.getPlayer2().getCardsInPlay();
+                this.myDynastyDiscard = gs.getPlayer2().cardsInDynastyDiscard;
+                this.myFateDiscard = gs.getPlayer2().cardsInFateDiscard;
+                this.myCardsInPlay = gs.getPlayer2().cardsInPlay;
                 this.playerPerformingAction = gs.getPlayer2();
             }
         }
@@ -72,8 +75,9 @@ namespace L5R
         public void performAction()
         {
             int t;
-            t = this.pickTarget(this.getLegalTargets());
-            if (this.opCardsInPlay[t].Force <= meleeStrength)
+            // TODO: this is broken
+            //t = this.pickTarget(this.getLegalTargets());
+            /*if (this.opCardsInPlay[t].Force <= meleeStrength)
             {   
                 //Add to appropiate discard list
                 //Remove from the inplay List
@@ -92,17 +96,13 @@ namespace L5R
                     this.playerActionPerformedOn.setCardsInPlay(this.opCardsInPlay);
                     this.playerActionPerformedOn.setCardsInDynastyDiscard(this.opDynastyDiscard);
                 }
-
-
-
-                
-                
-            }
+            }*/
         }
 
         public List<L5R.Card> getLegalTargets()
         {
-            this.validTargets = new List<L5R.Card>();
+            throw new NotImplementedException();
+            /*this.validTargets = new List<L5R.Card>();
             int j = 0;
             for (int i = 0; i < this.opCardsInPlay.Count; i++)
             {
@@ -113,7 +113,7 @@ namespace L5R
                 }
             }
 
-            return validTargets;
+            return validTargets;*/
         }
 
         public int pickTarget(List<L5R.Card> validTargets)

@@ -49,21 +49,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cards\Attachment.cs" />
+    <Compile Include="Cards\Celestial.cs" />
+    <Compile Include="Cards\DynastyCard.cs" />
+    <Compile Include="Cards\FateCard.cs" />
+    <Compile Include="Cards\Follower.cs" />
+    <Compile Include="Cards\Item.cs" />
+    <Compile Include="Cards\Personality.cs" />
+    <Compile Include="Cards\Ring.cs" />
+    <Compile Include="Cards\Stronghold.cs" />
     <Compile Include="DynastyPopup.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DynastyPopup.Designer.cs">
       <DependentUpon>DynastyPopup.cs</DependentUpon>
     </Compile>
+    <Compile Include="Cards\EventCard.cs" />
+    <Compile Include="GameAbilities\Ability.cs" />
     <Compile Include="GameAbilities\Action.cs" />
-    <Compile Include="Card.cs" />
+    <Compile Include="Cards\Card.cs" />
+    <Compile Include="GameAbilities\Condition.cs" />
+    <Compile Include="GameAbilities\Result.cs" />
     <Compile Include="PlayArea.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="PlayArea.Designer.cs">
       <DependentUpon>PlayArea.cs</DependentUpon>
     </Compile>
-    <Compile Include="GameState\GameState.cs" />
+    <Compile Include="GameState.cs" />
     <Compile Include="GameAbilities\MeleeAttack.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />

@@ -123,7 +123,7 @@ namespace L5R {
             // all your bowed cards, including your Stronghold.
             // Note that 'Bamboo' Harvesters' has a trait that says
             // it will not straighten on the first turn.
-            foreach (L5R.Card playerCard in activePlayer.cardsInPlay) {
+            foreach (Card playerCard in activePlayer.cardsInPlay) {
                 //playerCard.IsBowed = false;
                 playerCard.straighten(this);
             }
@@ -188,6 +188,8 @@ namespace L5R {
 
         public void performDynastyPhase() {
 
+            // Loop until the activep layer is fed up
+
             // XXX: We should pull GUI stuff out of the game logic
             // straight away --- this will be a nightmare to maintain
             // otherwise
@@ -198,7 +200,7 @@ namespace L5R {
             // Easier to read as a foreach; you can get the index number
             // (if you really need it; e.g., for logging) with
             // int i = activePlayer.cardsInProvince.IndexOf(province)
-            foreach (List<Card> province in activePlayer.cardsInProvince) {
+            //foreach (List<Card> province in activePlayer.cardsInProvince) {
                 // TODO: if a personality card is face up, then do something
                 
                 //if (province[0].IsPersonality == true && province[0].IsFaceDown == false) {
@@ -224,7 +226,7 @@ namespace L5R {
 
                     //listOfRadioButtons.Add(cardButton);
                 //}
-            }
+            //}
             // XXX: more UI stuff
             //DynastyPopup dp = new DynastyPopup();
             //dp.CurrentPlayer = activePlayer;

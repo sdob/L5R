@@ -26,7 +26,7 @@ namespace L5R
                 if (ctrl.Checked == true)
                 {
                     //Console.WriteLine(ctrl.Text + " is selected:" + ctrl.Checked.ToString() + " Card number:" + ctrl.Tag.ToString());
-                    this.currentPlayer.recruitCardFromProvence((int)ctrl.Tag);
+                    this.currentPlayer.recruitCardFromProvince((int)ctrl.Tag);
                     this.Close();
                 }
             }

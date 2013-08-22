@@ -5,7 +5,7 @@ using System.Text;
 
 namespace L5R
 {
-    class Unit
+    public class Unit
     {
         private List<L5R.Card> cardsInUnit;
         private string locationOfUnit;
@@ -45,16 +45,20 @@ namespace L5R
             //Check if personality is destroyed. If so destroy all cards in the unit
 
             //Check if card is a fate or dynasty card. And add to appropiate discard pile
-            if (this.cardsInUnit[position].IsFateCard == true)
-            {
-                owner.getCardsInFateDiscard().Add(this.cardsInUnit[position]);
-                this.cardsInUnit.RemoveAt(position);
-            }
-            else
-            {
-                owner.getCardsInDynastyDiscard().Add(this.cardsInUnit[position]);
-                this.cardsInUnit.RemoveAt(position);
-            }
+            // XXX: The *appropriate* way do to this is to implement a getDiscarded method
+            // on Fate and dynasty cards
+            this.cardsInUnit[position].getDiscardedBy(owner);
+            this.cardsInUnit.RemoveAt(position);
+            //if (this.cardsInUnit[position].IsFateCard == true)
+            //{
+                //owner.getCardsInFateDiscard().Add(this.cardsInUnit[position]);
+                //this.cardsInUnit.RemoveAt(position);
+            //}
+            //else
+            //{
+                //owner.getCardsInDynastyDiscard().Add(this.cardsInUnit[position]);
+                //this.cardsInUnit.RemoveAt(position);
+            //}
         }
     }
 }

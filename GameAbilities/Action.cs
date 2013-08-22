@@ -5,6 +5,8 @@ using System.Text;
 
 namespace L5R
 {
+    /** TODO: needs documentation
+     */
      interface Action
     {
          
@@ -21,7 +23,7 @@ namespace L5R
          //Perform the action
          void performAction();
 
-         void setActiveGameState(L5R.GameState.GameState gs);
+         void setActiveGameState(GameState gs);
 
          bool actionTargetsCardInUnit();
 
